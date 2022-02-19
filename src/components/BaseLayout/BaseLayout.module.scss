@@ -1,0 +1,26 @@
+.container {
+  max-width: 1440px - 200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  padding: 1.5rem 0;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--element);
+  box-shadow: 2px 4px 4px hsl(0deg 0% 0% / 0.05);
+}
+
+.title {
+  font-size: 1.5rem; //TODO: modify in font-size tunning
+}
+
+.main {
+  padding: 2.5rem 0;
+}
