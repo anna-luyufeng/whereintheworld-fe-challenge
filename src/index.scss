@@ -46,3 +46,11 @@ ol {
   list-style: none;
   padding-inline-start: 0;
 }
+
+li b {
+  padding-right: 0.25rem;
+
+  &::after {
+    content: ":";
+  }
+}
