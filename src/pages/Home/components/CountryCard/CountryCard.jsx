@@ -22,7 +22,7 @@ function CountryCard({ alpha3Code, capital, flag, name, population, region }) {
     <Link to={`/country/${alpha3Code}`} className={styles.root}>
       <img
         src={flag}
-        alt={`country flag of ${name}`}
+        alt={`Country flag of ${name}`}
         loading="lazy"
         width={265}
       />
