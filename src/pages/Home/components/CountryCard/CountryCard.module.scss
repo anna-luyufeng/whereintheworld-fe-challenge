@@ -1,0 +1,35 @@
+.root {
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--element);
+  box-shadow: 3.4px 6.7px 6.7px hsl(0deg 0% 0% / 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 4.6px 9.3px 9.3px hsl(0deg 0% 0% / 0.2);
+  }
+}
+
+.content {
+  padding: 1.5rem 1.5rem 3rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.details {
+  li + li {
+    padding-top: 0.5rem;
+  }
+
+  b {
+    padding-right: 0.25rem;
+
+    &::after {
+      content: ":";
+    }
+  }
+}
