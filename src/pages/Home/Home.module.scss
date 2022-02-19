@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2.5rem;
 }
 
 .search {
@@ -10,4 +11,11 @@
 
 .filterRegion {
   max-width: 12.5rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(265px, auto);
+  grid-gap: 3.75rem;
 }

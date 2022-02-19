@@ -8,6 +8,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 
+import CountryCard from "./components/CountryCard";
+
 import REGION_LIST from "constants/regionList";
 
 import styles from "./Home.module.scss";
@@ -58,6 +60,19 @@ function Home() {
             ))}
           </Select>
         </FormControl>
+      </div>
+      <div className={styles.cards}>
+        {/* TODO: replace with real data from API */}
+        {Array.from({ length: 10 }, () => ({
+          alpha3Code: "col",
+          capital: "Bogotá",
+          flag: "https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg",
+          name: "Colombia",
+          population: 48759958,
+          region: "South America",
+        })).map((country, countryIndex) => (
+          <CountryCard key={countryIndex} {...country} />
+        ))}
       </div>
     </>
   );
