@@ -7,10 +7,10 @@
   --element: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #{colors.$semi-dark-blue};
-    --text: white;
-    --element: #{colors.$dark-blue};
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #{colors.$semi-dark-blue};
+//     --text: white;
+//     --element: #{colors.$dark-blue};
+//   }
+// }
