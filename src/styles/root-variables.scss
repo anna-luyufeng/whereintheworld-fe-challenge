@@ -1,6 +1,7 @@
 @use "./colors.scss";
 
 :root {
+  --font-family: "Nunito Sans", system-ui, sans-serif;
   --background: #{colors.$light-gray};
   --text: #{colors.$very-dark-blue};
   --element: white;
