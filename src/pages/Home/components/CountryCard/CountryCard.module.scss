@@ -24,12 +24,4 @@
   li + li {
     padding-top: 0.5rem;
   }
-
-  b {
-    padding-right: 0.25rem;
-
-    &::after {
-      content: ":";
-    }
-  }
 }
