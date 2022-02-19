@@ -1,0 +1,15 @@
+@use "./colors.scss";
+
+:root {
+  --background: #{colors.$light-gray};
+  --text: #{colors.$very-dark-blue};
+  --element: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #{colors.$semi-dark-blue};
+    --text: white;
+    --element: #{colors.$dark-blue};
+  }
+}
