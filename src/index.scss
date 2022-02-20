@@ -1,5 +1,6 @@
 @use "styles/root-variables.scss";
 @use "styles/theme.scss";
+@use "styles/fonts.scss";
 
 * {
   box-sizing: border-box;
@@ -13,6 +14,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @include fonts.paragraph;
 }
 
 body {
@@ -27,11 +30,16 @@ h4,
 h5,
 h6 {
   margin: 0;
+  @include fonts.heading;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+b {
+  @include fonts.paragraph("medium");
 }
 
 p,
