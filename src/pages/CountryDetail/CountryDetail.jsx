@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import Button from "@mui/material/Button";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -10,12 +10,9 @@ import { useGetCountryByAlpha3CodeQuery } from "reduxModules/country/countryApi"
 import styles from "./CountryDetail.module.scss";
 
 function CountryDetail() {
-  const navigate = useNavigate();
   const params = useParams();
 
   const { data, isLoading } = useGetCountryByAlpha3CodeQuery(params.code);
-
-  const goBack = () => navigate("/");
 
   const renderDetail = () => {
     if (isLoading) return <Skeleton.CountryDetail />;
@@ -126,8 +123,9 @@ function CountryDetail() {
     <div className={styles.root}>
       <div className={styles.navigateBack}>
         <Button
-          onClick={goBack}
-          variant="outlined"
+          component={Link}
+          to="/"
+          variant="contained"
           startIcon={<ArrowBackIosNewIcon />}
         >
           Back

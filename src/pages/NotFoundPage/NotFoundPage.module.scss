@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "styles/breakpoints.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: map.get(breakpoints.$screen-map, "desktop");
+  margin: 10rem auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 5rem;
+}
+
+.helptext {
+  margin-bottom: 1.5rem;
+}

@@ -5,6 +5,7 @@ import BaseLayout from "components/BaseLayout";
 
 const Home = lazy(() => import("./pages/Home"));
 const CountryDetail = lazy(() => import("./pages/CountryDetail"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/country/:code" element={<CountryDetail />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </BaseLayout>
