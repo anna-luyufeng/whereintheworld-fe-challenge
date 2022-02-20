@@ -1,16 +1,15 @@
 @use "./colors.scss";
 
-:root {
-  --font-family: "Nunito Sans", system-ui, sans-serif;
-  --background: #{colors.$light-gray};
-  --text: #{colors.$very-dark-blue};
-  --element: white;
+@function light-dark($light, $dark) {
+  @return var(--light, #{$light}) var(--dark, #{$dark});
 }
 
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --background: #{colors.$semi-dark-blue};
-//     --text: white;
-//     --element: #{colors.$dark-blue};
-//   }
-// }
+:root {
+  --font-family: "Nunito Sans", system-ui, sans-serif;
+  --ON: initial;
+  // ref: https://lea.verou.me/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/
+  --OFF: ;
+  --text: #{light-dark(colors.$very-dark-blue, white)};
+  --background: #{light-dark(colors.$light-gray, colors.$semi-dark-blue)};
+  --element: #{light-dark(white, colors.$dark-blue)};
+}
