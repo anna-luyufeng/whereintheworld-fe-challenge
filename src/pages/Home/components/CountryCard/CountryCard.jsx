@@ -1,4 +1,4 @@
-import { string, number } from "prop-types";
+import { string } from "prop-types";
 import { Link } from "react-router-dom";
 
 import styles from "./CountryCard.module.scss";
@@ -7,7 +7,7 @@ function CountryCard({ alpha3Code, capital, flag, name, population, region }) {
   const details = [
     {
       label: "Population",
-      value: population.toLocaleString(), // TODO: move to data transform
+      value: population,
     },
     {
       label: "Region",
@@ -46,7 +46,7 @@ CountryCard.propTypes = {
   capital: string.isRequired,
   flag: string.isRequired,
   name: string.isRequired,
-  population: number.isRequired,
+  population: string.isRequired,
   region: string.isRequired,
 };
 
