@@ -24,7 +24,9 @@ export const countryApi = createApi({
               "name,capital,population,flag,nativeName,region,subregion,topLevelDomain,currencies,languages,borders",
           },
         });
-        if (countryResult.error) throw countryResult.error;
+        if (countryResult.data.status === 400)
+          return { error: countryResult.data };
+
         const countryBorders = countryResult.data.borders;
 
         const countryBordersResults = await Promise.all(
@@ -46,7 +48,7 @@ export const countryApi = createApi({
                 borders: countryBordersResults,
               }),
             }
-          : { error: countryBordersResults.error };
+          : { error: countryBordersResults.data };
       },
     }),
   }),

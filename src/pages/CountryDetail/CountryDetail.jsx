@@ -17,6 +17,9 @@ function CountryDetail() {
   const renderDetail = () => {
     if (isLoading) return <Skeleton.CountryDetail />;
 
+    if (!data)
+      return <p>Couldn't find a country by alpha-3 code: "{params.code}".</p>;
+
     const {
       borders,
       capital,
