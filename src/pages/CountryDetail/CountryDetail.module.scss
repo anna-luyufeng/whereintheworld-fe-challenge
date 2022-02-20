@@ -58,14 +58,20 @@
 }
 
 .details {
-  display: grid;
-  gap: 0.5rem;
-  grid-template-rows: repeat(5, min-content);
-  grid-auto-flow: column;
+  display: flex;
+  gap: 4rem;
   margin-bottom: 4rem;
 
   @include breakpoints.down("tablet") {
-    grid-template-rows: repeat(8, min-content);
+    flex-direction: column;
+  }
+}
+
+.group {
+  flex: 1;
+
+  li + li {
+    padding-top: 0.5rem;
   }
 }
 

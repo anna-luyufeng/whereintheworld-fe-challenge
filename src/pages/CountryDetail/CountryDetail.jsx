@@ -34,40 +34,45 @@ function CountryDetail() {
       topLevelDomain,
     } = data;
 
-    const details = [
-      {
-        label: "Native Name",
-        value: nativeName,
-      },
-      {
-        label: "Population",
-        value: population,
-      },
-      {
-        label: "Region",
-        value: region,
-      },
-      {
-        label: "Sub Region",
-        value: subregion,
-      },
-      {
-        label: "Capital",
-        value: capital,
-      },
-      {
-        label: "Top Level Domain",
-        value: topLevelDomain,
-      },
-      {
-        label: "Currencies",
-        value: currencies,
-      },
-      {
-        label: "Languages",
-        value: languages,
-      },
-    ];
+    const details = {
+      left: [
+        {
+          label: "Native Name",
+          value: nativeName,
+        },
+        {
+          label: "Population",
+          value: population,
+        },
+        {
+          label: "Region",
+          value: region,
+        },
+        {
+          label: "Sub Region",
+          value: subregion,
+        },
+        {
+          label: "Capital",
+          value: capital,
+        },
+      ],
+      right: [
+        {
+          label: "Top Level Domain",
+          value: topLevelDomain,
+        },
+        {
+          label: "Currencies",
+          value: currencies,
+        },
+        {
+          label: "Languages",
+          value: languages,
+        },
+      ],
+    };
+
     return (
       <div className={styles.wrapper}>
         <div className={styles.flag}>
@@ -78,13 +83,20 @@ function CountryDetail() {
             loading="lazy"
           />
         </div>
+
         <div className={styles.content}>
           <h2 className={styles.title}>{name}</h2>
           <ul className={styles.details}>
-            {details.map(({ label, value }) => (
-              <li key={label}>
-                <b>{label}</b>
-                {value}
+            {Object.entries(details).map(([position, list]) => (
+              <li className={styles.group} key={position}>
+                <ul>
+                  {list.map(({ label, value }) => (
+                    <li key={label}>
+                      <b>{label}</b>
+                      {value}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>
