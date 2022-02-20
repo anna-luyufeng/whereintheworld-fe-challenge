@@ -1,91 +1,74 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import Button from "@mui/material/Button";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-import styles from "./CountryDetail.module.scss";
+import Skeleton from "components/Skeleton";
 
-//  TODO: replace with real data from API
-const MOCK_COUNTRY_DATA = {
-  name: "Colombia",
-  region: "South America",
-  subregion: "South America",
-  capital: "Bogotá",
-  population: 48759958,
-  borders: ["BRA", "ECU", "PAN", "PER", "VEN"],
-  nativeName: "Colombia",
-  currencies: "COP",
-  languages: "Spanish",
-  flag: "https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg",
-  topLevelDomain: ".co",
-};
+import { useGetCountryByAlpha3CodeQuery } from "reduxModules/country/countryApi";
+
+import styles from "./CountryDetail.module.scss";
 
 function CountryDetail() {
   const navigate = useNavigate();
+  const params = useParams();
 
-  const {
-    borders,
-    capital,
-    currencies,
-    flag,
-    languages,
-    name,
-    nativeName,
-    population,
-    region,
-    subregion,
-    topLevelDomain,
-  } = MOCK_COUNTRY_DATA;
-
-  const details = [
-    {
-      label: "Native Name",
-      value: nativeName,
-    },
-    {
-      label: "Population",
-      value: population.toLocaleString(), // TODO: move to data transform
-    },
-    {
-      label: "Region",
-      value: region,
-    },
-    {
-      label: "Sub Region",
-      value: subregion,
-    },
-    {
-      label: "Capital",
-      value: capital,
-    },
-    {
-      label: "Top Level Domain",
-      value: topLevelDomain,
-    },
-    {
-      label: "Currencies",
-      value: currencies,
-    },
-    {
-      label: "Languages",
-      value: languages,
-    },
-  ];
+  const { data, isLoading } = useGetCountryByAlpha3CodeQuery(params.code);
 
   const goBack = () => navigate("/");
 
-  return (
-    <div className={styles.root}>
-      <div className={styles.navigateBack}>
-        <Button
-          onClick={goBack}
-          variant="outlined"
-          startIcon={<ArrowBackIosNewIcon />}
-        >
-          Back
-        </Button>
-      </div>
+  const renderDetail = () => {
+    if (isLoading) return <Skeleton.CountryDetail />;
 
+    const {
+      borders,
+      capital,
+      currencies,
+      flag,
+      languages,
+      name,
+      nativeName,
+      population,
+      region,
+      subregion,
+      topLevelDomain,
+    } = data;
+
+    const details = [
+      {
+        label: "Native Name",
+        value: nativeName,
+      },
+      {
+        label: "Population",
+        value: population,
+      },
+      {
+        label: "Region",
+        value: region,
+      },
+      {
+        label: "Sub Region",
+        value: subregion,
+      },
+      {
+        label: "Capital",
+        value: capital,
+      },
+      {
+        label: "Top Level Domain",
+        value: topLevelDomain,
+      },
+      {
+        label: "Currencies",
+        value: currencies,
+      },
+      {
+        label: "Languages",
+        value: languages,
+      },
+    ];
+    return (
       <div className={styles.wrapper}>
         <div className={styles.flag}>
           <img
@@ -110,9 +93,11 @@ function CountryDetail() {
             {borders.length > 0 ? (
               <ul className={styles.borderList}>
                 {borders.map((border) => (
-                  <Link to={`/country/${border}`} key={border}>
-                    {/* TODO: use alpha API to get the border country name */}
-                    <li className={styles.borderListItem}>{border}</li>
+                  <Link
+                    to={`/country/${border.alpha3Code}`}
+                    key={border.alpha3Code}
+                  >
+                    <li className={styles.borderListItem}>{border.name}</li>
                   </Link>
                 ))}
               </ul>
@@ -122,6 +107,22 @@ function CountryDetail() {
           </div>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <div className={styles.root}>
+      <div className={styles.navigateBack}>
+        <Button
+          onClick={goBack}
+          variant="outlined"
+          startIcon={<ArrowBackIosNewIcon />}
+        >
+          Back
+        </Button>
+      </div>
+
+      {renderDetail()}
     </div>
   );
 }
