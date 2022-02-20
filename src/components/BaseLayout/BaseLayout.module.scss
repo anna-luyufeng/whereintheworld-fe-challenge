@@ -23,7 +23,7 @@
   left: 0;
   width: 100%;
   background-color: var(--element);
-  box-shadow: 5.4px 10.9px 10.9px hsl(0deg 0% 0% / 5%);
+  box-shadow: 5.4px 10.9px 10.9px rgb(0 0 0/ 0.05);
 
   @include breakpoints.down("tablet") {
     padding: 2.5rem 0;
