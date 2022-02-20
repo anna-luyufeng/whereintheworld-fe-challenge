@@ -102,7 +102,9 @@ function CountryDetail() {
           </ul>
           <div className={styles.borders}>
             <b>Border Countries:</b>
-            {borders.length > 0 ? (
+            {borders.length === 0 ? (
+              "None"
+            ) : (
               <ul className={styles.borderList}>
                 {borders.map((border) => (
                   <Link
@@ -113,8 +115,6 @@ function CountryDetail() {
                   </Link>
                 ))}
               </ul>
-            ) : (
-              "None"
             )}
           </div>
         </div>

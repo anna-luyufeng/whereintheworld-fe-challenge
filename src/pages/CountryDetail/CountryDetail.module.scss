@@ -24,19 +24,21 @@
   position: relative;
   margin-right: 6.5rem;
   width: 100%;
+  max-width: 550px;
 
   @include breakpoints.down("laptop") {
     margin-right: 3rem;
   }
 
   @include breakpoints.down("tablet") {
+    max-width: 100%;
     margin-right: 0;
     margin-bottom: 3.5rem;
   }
 
   &::after {
     content: "";
-    padding-bottom: math.div(100%, math.div(7, 5));
+    padding-bottom: math.div(100%, math.div(11, 8));
     display: block;
   }
 }

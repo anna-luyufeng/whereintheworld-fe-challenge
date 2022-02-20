@@ -1,15 +1,14 @@
-import Grid from "@mui/material/Grid";
 import Skeleton from "@mui/material/Skeleton";
+
+import styles from "pages/Home/Home.module.scss";
 
 function HomeCountryCards() {
   return (
-    <Grid container>
+    <div className={styles.cards}>
       {[...Array(4).keys()].map((item) => (
-        <Grid item xs={3} key={item}>
-          <Skeleton variant="rectangular" width={265} height={340} />
-        </Grid>
+        <Skeleton key={item} variant="rectangular" width={265} height={340} />
       ))}
-    </Grid>
+    </div>
   );
 }
 
