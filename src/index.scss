@@ -9,6 +9,7 @@ html {
   font-family: var(--font-family);
   color: var(--text);
   background-color: var(--background);
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

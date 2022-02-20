@@ -1,10 +1,18 @@
+@use "sass:map";
+@use "styles/breakpoints.scss";
+
 .container {
-  max-width: 1440px - 200px;
+  max-width: map.get(breakpoints.$screen-map, "laptop-l");
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0 6.25rem;
+
+  @include breakpoints.down("laptop-l") {
+    padding: 0 1.5rem;
+  }
 }
 
 .header {
@@ -15,11 +23,19 @@
   left: 0;
   width: 100%;
   background-color: var(--element);
-  box-shadow: 2px 4px 4px hsl(0deg 0% 0% / 0.05);
+  box-shadow: 5.4px 10.9px 10.9px hsl(0deg 0% 0% / 5%);
+
+  @include breakpoints.down("tablet") {
+    padding: 2.5rem 0;
+  }
 }
 
 .title {
-  font-size: 1.5rem; //TODO: modify in font-size tunning
+  font-size: 1.5rem;
+
+  @include breakpoints.down("tablet") {
+    font-size: 1.25rem;
+  }
 }
 
 .main {
