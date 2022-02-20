@@ -14,7 +14,7 @@ $screen-map: (
 }
 
 @mixin down($screen) {
-  @media (max-width: map.get($screen-map, $screen)) {
+  @media (max-width: #{map.get($screen-map, $screen) - 1px}) {
     @content;
   }
 }
