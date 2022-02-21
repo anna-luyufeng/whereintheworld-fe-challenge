@@ -24,6 +24,9 @@ const getDesignTokens = (isDarkMode) => ({
   palette: {
     ...(isDarkMode ? darkTheme : lightTheme),
   },
+  typography: {
+    fontFamily: '"Nunito Sans", system-ui, sans-serif',
+  },
 });
 
 export default getDesignTokens;
