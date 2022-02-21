@@ -14,8 +14,8 @@ export default function useInView(callback) {
       },
       {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.5,
+        rootMargin: "25px",
+        threshold: 0,
       }
     );
     observer.observe(observeRef.current);
