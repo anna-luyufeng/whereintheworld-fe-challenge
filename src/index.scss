@@ -16,6 +16,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 
   @include fonts.paragraph;
+
+  ::-webkit-search-cancel-button {
+    display: none;
+  }
 }
 
 body {

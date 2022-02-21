@@ -16,8 +16,21 @@
   max-width: 30rem;
 }
 
+.searchClear {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+  input:not(:placeholder-shown) ~ & {
+    opacity: 1;
+  }
+}
+
 .filter {
   max-width: 12.5rem;
+
+  @include breakpoints.down("tablet") {
+    max-width: 100%;
+  }
 }
 
 .cards {

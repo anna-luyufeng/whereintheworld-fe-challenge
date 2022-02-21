@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
 import FormControl from "@mui/material/FormControl";
-import OutlinedInput from "@mui/material/OutlinedInput";
+import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Select from "@mui/material/Select";
+import ClearIcon from "@mui/icons-material/Clear";
+import SearchIcon from "@mui/icons-material/Search";
 
 import Skeleton from "components/Skeleton";
 import CountryCard from "./components/CountryCard";
@@ -55,6 +57,14 @@ function Home() {
     }));
   };
 
+  const clearSearch = () =>
+    setFilter((state) => ({
+      ...state,
+      name: "",
+    }));
+
+  const onMouseDownClearSearch = (event) => event.preventDefault();
+
   const renderCountryCards = () => {
     if (isLoading) return <Skeleton.HomeCountryCards />;
 
@@ -85,6 +95,16 @@ function Home() {
             startAdornment={
               <InputAdornment position="start">
                 <SearchIcon />
+              </InputAdornment>
+            }
+            endAdornment={
+              <InputAdornment position="end" className={styles.searchClear}>
+                <IconButton
+                  onClick={clearSearch}
+                  onMouseDown={onMouseDownClearSearch}
+                >
+                  <ClearIcon />
+                </IconButton>
               </InputAdornment>
             }
             placeholder="Search for a country..."
