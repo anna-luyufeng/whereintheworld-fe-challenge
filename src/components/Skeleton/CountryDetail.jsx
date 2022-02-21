@@ -5,12 +5,12 @@ import styles from "pages/CountryDetail/CountryDetail.module.scss";
 function CountryDetail() {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.content}>
+      <div className={styles.flag}>
         <Skeleton
+          className={styles.flagImage}
           variant="rectangular"
-          height={400}
+          height="100%"
           width="100%"
-          style={{ maxWidth: 550 }}
         />
       </div>
       <div className={styles.content}>
