@@ -13,6 +13,7 @@
 .wrapper {
   display: flex;
   align-items: center;
+  gap: 3.5rem;
 
   @include breakpoints.down("tablet") {
     flex-direction: column;
@@ -22,18 +23,17 @@
 .flag {
   flex: 1;
   position: relative;
-  margin-right: 6.5rem;
+  margin-right: 3rem;
   width: 100%;
   max-width: 550px;
 
   @include breakpoints.down("laptop") {
-    margin-right: 3rem;
+    margin-right: 1.5rem;
   }
 
   @include breakpoints.down("tablet") {
     max-width: 100%;
     margin-right: 0;
-    margin-bottom: 3.5rem;
   }
 
   &::after {

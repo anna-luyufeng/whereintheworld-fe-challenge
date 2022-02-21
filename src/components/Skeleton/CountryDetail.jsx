@@ -5,12 +5,14 @@ import styles from "pages/CountryDetail/CountryDetail.module.scss";
 function CountryDetail() {
   return (
     <div className={styles.wrapper}>
-      <Skeleton
-        variant="rectangular"
-        height={400}
-        width={550}
-        style={{ marginRight: 120 }}
-      />
+      <div className={styles.content}>
+        <Skeleton
+          variant="rectangular"
+          height={400}
+          width="100%"
+          style={{ maxWidth: 550 }}
+        />
+      </div>
       <div className={styles.content}>
         <Skeleton
           variant="text"
