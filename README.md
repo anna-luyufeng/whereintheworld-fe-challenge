@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Where in the world? - Cabital Front End Challenge
+
+Online demo: https://cabital-fe-challenge.vercel.app/
+
+## About the challenge 
+
+Read more details in [challenge description](./challenge-doc/README.md).
+
+## Project setup
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+- Add `.nvmrc` to specify the Node version. (ref: https://github.com/nvm-sh/nvm#nvmrc)
+- Use components and icons from [Material-UI](https://next--material-ui-docs.netlify.app/zh/).
+- Use [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged) to lint code before commit.
+- Use [Redux Toolkit](https://github.com/reduxjs/redux-toolkit) to write Redux and RTK Query for data fetching.
+- Deploy by [Vercel](https://vercel.com/dashboard).
 
-In the project directory, you can run:
+### Run project on local
 
-### `npm start`
+```bash
+# install dependencies
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# runs the app in development mode. open http://localhost:3000 to view it in the browser.
+npm start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# build for development
+npm run build
+```
 
-### `npm test`
+## Project structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `components`: shared components, basic layout component
+- `constants`: values not from API, like region list for filter options
+- `hooks`: custom hooks which can be used in different components
+- `pages`: the "views" users can access, in this project we have homepage, country detail page and not found page
+- `reduxModules`: redux store and RTK query configuration
+- `styles`: split style configurations in different stylesheet like colors, fonts, breakpoints, etc.
 
-### `npm run build`
+## Feature checklist
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] See all countries from the API on the homepage
+- [x] Search for a country using an `input` field
+- [x] Filter countries by region
+- [x] Click on a country to see more detailed information on a separate page
+- [x] Click through to the border countries on the detail page
+- [x] Toggle the color scheme between light and dark mode *(optional, but nice to have)*
+- [x] Use React Hook
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### More than checklist...
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Display **skeleton** during the data fetching for a better user expierence.
+- **Inifinte scrolling** to load countries.
+- Display **not found message** when there's no match in the search name and region. 
+- Display the **back to top button** for user can scroll back up quicky both on laptop and mobile devices.
+- Display **not found page** if users enter the invalid URLs.
+- **Save users color schema preference** prevent resetting after refreshing the page.
+- Display `-` for empty field instead of leaving it the blank.
+- Display the error message for invalid country code.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 
