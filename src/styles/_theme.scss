@@ -6,9 +6,7 @@
 .theme-dark {
   --light: var(--OFF);
   --dark: var(--ON);
-}
 
-@media (prefers-color-scheme: dark) {
   img,
   video,
   iframe {
