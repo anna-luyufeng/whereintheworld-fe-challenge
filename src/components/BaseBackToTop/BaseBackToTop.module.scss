@@ -1,0 +1,22 @@
+@use "styles/breakpoints.scss";
+
+.root {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  @include breakpoints.down("tablet") {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

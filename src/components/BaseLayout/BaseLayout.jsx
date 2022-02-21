@@ -6,6 +6,8 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import IconButton from "@mui/material/IconButton";
 
+import BaseBackToTop from "components/BaseBackToTop";
+
 import getDesignTokens from "muiTheme";
 import styles from "./BaseLayout.module.scss";
 
@@ -62,6 +64,7 @@ export default function BaseLayout({ children }) {
       <main className={styles.main}>
         <div className={styles.container}>{children}</div>
       </main>
+      <BaseBackToTop />
     </ThemeProvider>
   );
 }
