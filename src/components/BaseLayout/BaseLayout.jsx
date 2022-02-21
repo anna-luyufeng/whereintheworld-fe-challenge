@@ -1,13 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import IconButton from "@mui/material/IconButton";
 
+import getDesignTokens from "muiTheme";
 import styles from "./BaseLayout.module.scss";
 
 export default function BaseLayout({ children }) {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const theme = useMemo(
+    () => createTheme(getDesignTokens(isDarkTheme)),
+    [isDarkTheme]
+  );
 
   useEffect(() => {
     const preferredTheme = localStorage.getItem("theme");
@@ -36,7 +44,7 @@ export default function BaseLayout({ children }) {
   const toggleDarkTheme = () => setIsDarkTheme(!isDarkTheme);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <header className={styles.header}>
         <div className={styles.container}>
           <Link to="/">
@@ -54,6 +62,6 @@ export default function BaseLayout({ children }) {
       <main className={styles.main}>
         <div className={styles.container}>{children}</div>
       </main>
-    </>
+    </ThemeProvider>
   );
 }

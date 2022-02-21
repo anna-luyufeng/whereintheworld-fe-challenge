@@ -129,6 +129,7 @@ function CountryDetail() {
           component={Link}
           to="/"
           variant="contained"
+          color="neutral"
           startIcon={<ArrowBackIosNewIcon />}
         >
           Back
