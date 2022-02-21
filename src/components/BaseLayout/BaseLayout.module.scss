@@ -40,4 +40,8 @@
 
 .main {
   padding: 2.5rem 0;
+
+  @include breakpoints.down("tablet") {
+    padding-bottom: 4rem;
+  }
 }
