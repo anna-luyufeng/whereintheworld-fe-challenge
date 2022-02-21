@@ -1,5 +1,5 @@
-import { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Suspense, useEffect, lazy } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import BaseLayout from "components/BaseLayout";
 
@@ -8,6 +8,12 @@ const CountryDetail = lazy(() => import("./pages/CountryDetail"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <BaseLayout>
       <Suspense fallback={<div>Loading...</div>}>
