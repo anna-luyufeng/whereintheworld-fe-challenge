@@ -1,6 +1,6 @@
-# Where in the world? - Cabital Front End Challenge
+# Where in the world? - Front End Challenge
 
-Online demo: https://cabital-fe-challenge.vercel.app/
+Online demo: https://whereintheworld-fe-challenge.vercel.app/
 
 ## About the challenge 
 
