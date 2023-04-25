@@ -3,7 +3,8 @@
     "baseUrl": "src",
     "allowJs": true,
     "checkJs": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
   },
   "include": ["src"]
 }
