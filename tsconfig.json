@@ -5,6 +5,7 @@
     "checkJs": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
+    "target": "ES2015",
   },
   "include": ["src", "typings"]
 }
