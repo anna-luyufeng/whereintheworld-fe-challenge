@@ -22,7 +22,7 @@ import useInfiniteLoader from "hooks/useInfiniteLoader";
 import styles from "./Home.module.scss";
 
 function Home() {
-  const { data = [], isLoading } = useGetAllCountriesQuery();
+  const { data = [], isLoading } = useGetAllCountriesQuery({});
 
   const [listData, setListData] = useState([]);
   const [filter, setFilter] = useState({
