@@ -1,4 +1,12 @@
-const lightTheme = {
+import { PaletteOptions, ThemeOptions } from "@mui/material";
+
+declare module "@mui/material/styles" {
+  interface PaletteOptions {
+    neutral: PaletteOptions["primary"];
+  }
+}
+
+const lightTheme: PaletteOptions = {
   mode: "light",
   primary: {
     main: "#111517",
@@ -9,7 +17,7 @@ const lightTheme = {
   },
 };
 
-const darkTheme = {
+const darkTheme: PaletteOptions = {
   mode: "dark",
   primary: {
     main: "#ffffff",
@@ -20,7 +28,7 @@ const darkTheme = {
   },
 };
 
-const getDesignTokens = (isDarkMode) => ({
+const getDesignTokens = (isDarkMode: boolean): ThemeOptions => ({
   palette: {
     ...(isDarkMode ? darkTheme : lightTheme),
   },
