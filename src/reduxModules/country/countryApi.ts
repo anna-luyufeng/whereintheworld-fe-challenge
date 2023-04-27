@@ -34,16 +34,18 @@ export const countryApi = createApi({
 
         const countryBorders = (countryResult.data as Country).borders;
 
+        async function fetchCountryBorderData(border) {
+          const response = await fetchWithBQ({
+            url: `/alpha/${border}`,
+            params: {
+              fields: "name,alpha3Code",
+            },
+          });
+          return response.data;
+        }
+
         const countryBordersResults = await Promise.all(
-          countryBorders.map(
-            async (border) =>
-              await fetchWithBQ({
-                url: `/alpha/${border}`,
-                params: {
-                  fields: "name,alpha3Code",
-                },
-              }).then((res) => res.data)
-          )
+          countryBorders.map((border) => fetchCountryBorderData(border))
         );
 
         return countryBordersResults
