@@ -1,4 +1,8 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import {
+  FetchBaseQueryError,
+  createApi,
+  fetchBaseQuery,
+} from "@reduxjs/toolkit/query/react";
 
 import { transformCountry, transformGetAllCountries } from "./transform";
 
@@ -24,8 +28,9 @@ export const countryApi = createApi({
               "name,capital,population,flag,nativeName,region,subregion,topLevelDomain,currencies,languages,borders",
           },
         });
-        if (countryResult.data.status === 400)
-          return { error: countryResult.data };
+
+        if (countryResult.error)
+          return { error: countryResult.error as FetchBaseQueryError };
 
         const countryBorders = countryResult.data.borders;
 
