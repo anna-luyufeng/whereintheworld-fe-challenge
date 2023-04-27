@@ -49,13 +49,15 @@ function Home() {
     setListData(filteredListData);
   }, [data, filter.region, filter.name]);
 
-  const onChangeFilter = (key) => (event) => {
-    const value = event.target.value;
-    setFilter((state) => ({
-      ...state,
-      [key]: value,
-    }));
-  };
+  const onChangeFilter =
+    (key: "name" | "region") =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setFilter((state) => ({
+        ...state,
+        [key]: value,
+      }));
+    };
 
   const clearSearch = () =>
     setFilter((state) => ({
@@ -63,7 +65,8 @@ function Home() {
       name: "",
     }));
 
-  const onMouseDownClearSearch = (event) => event.preventDefault();
+  const onMouseDownClearSearch = (event: React.MouseEvent<HTMLButtonElement>) =>
+    event.preventDefault();
 
   const renderCountryCards = () => {
     if (isLoading) return <Skeleton.HomeCountryCards />;

@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 
 import styles from "./CountryCard.module.scss";
 
-function CountryCard({ alpha3Code, capital, flag, name, population, region }) {
+function CountryCard({
+  alpha3Code,
+  capital,
+  flag,
+  name,
+  population,
+  region,
+}: CountryDetail) {
   const details = [
     {
       label: "Population",

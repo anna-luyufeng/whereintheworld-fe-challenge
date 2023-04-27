@@ -11,7 +11,11 @@ import BaseBackToTop from "components/BaseBackToTop";
 import getDesignTokens from "muiTheme";
 import styles from "./BaseLayout.module.scss";
 
-export default function BaseLayout({ children }) {
+interface BaseLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function BaseLayout({ children }: BaseLayoutProps) {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const theme = useMemo(

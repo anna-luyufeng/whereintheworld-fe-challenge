@@ -1,4 +1,17 @@
-export const transformCountry = (country) => {
+export const transformGetAllCountries = (response: CountryList[]) =>
+  response.map(transformCountryList);
+
+export const transformCountryList = (country: CountryList) => {
+  const { alpha3Code = "", capital } = country;
+
+  return {
+    ...country,
+    alpha3Code: alpha3Code.toLowerCase(),
+    capital: capital || "-",
+  };
+};
+
+export const transformCountry = (country: CountryWithFullBorders) => {
   const {
     alpha3Code = "",
     borders = [],
@@ -26,6 +39,3 @@ export const transformCountry = (country) => {
     topLevelDomain: topLevelDomain[0],
   };
 };
-
-export const transformGetAllCountries = (response) =>
-  response.map(transformCountry);

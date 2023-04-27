@@ -32,9 +32,9 @@ export const countryApi = createApi({
         if (countryResult.error)
           return { error: countryResult.error as FetchBaseQueryError };
 
-        const countryBorders = (countryResult.data as Country).borders;
+        const countryBorders = (countryResult.data as CountryDetail).borders;
 
-        async function fetchCountryBorderData(border) {
+        async function fetchCountryBorderData(border: string) {
           const response = await fetchWithBQ({
             url: `/alpha/${border}`,
             params: {
@@ -50,8 +50,8 @@ export const countryApi = createApi({
 
         return {
           data: transformCountry({
-            ...(countryResult.data as Country),
-            borders: countryBordersResults.filter(Boolean),
+            ...(countryResult.data as CountryDetail),
+            borders: (countryBordersResults as CountryBorder[]).filter(Boolean),
           }),
         };
       },

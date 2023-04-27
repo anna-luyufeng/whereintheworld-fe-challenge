@@ -34,7 +34,7 @@ function CountryDetail() {
       region,
       subregion,
       topLevelDomain,
-    } = data;
+    } = data as TransformedCountryDetail;
 
     const details = {
       left: [

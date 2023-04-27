@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 
-export default function useInView(callback) {
+export default function useInView(callback: () => void) {
   const observeRef = useRef(null);
 
   useEffect(() => {
