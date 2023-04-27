@@ -48,14 +48,12 @@ export const countryApi = createApi({
           countryBorders.map((border) => fetchCountryBorderData(border))
         );
 
-        return countryBordersResults
-          ? {
-              data: transformCountry({
-                ...(countryResult.data as Country),
-                borders: countryBordersResults,
-              }),
-            }
-          : { error: countryBordersResults.data };
+        return {
+          data: transformCountry({
+            ...(countryResult.data as Country),
+            borders: countryBordersResults.filter(Boolean),
+          }),
+        };
       },
     }),
   }),
