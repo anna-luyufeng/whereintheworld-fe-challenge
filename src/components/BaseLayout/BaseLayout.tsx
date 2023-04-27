@@ -39,11 +39,11 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
     localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
 
     if (isDarkTheme) {
-      document.querySelector("html").classList.remove("theme-light");
-      document.querySelector("html").classList.add("theme-dark");
+      document.querySelector("html")?.classList.remove("theme-light");
+      document.querySelector("html")?.classList.add("theme-dark");
     } else {
-      document.querySelector("html").classList.add("theme-light");
-      document.querySelector("html").classList.remove("theme-dark");
+      document.querySelector("html")?.classList.add("theme-light");
+      document.querySelector("html")?.classList.remove("theme-dark");
     }
   }, [isDarkTheme]);
 

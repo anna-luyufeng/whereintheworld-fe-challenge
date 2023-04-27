@@ -10,7 +10,7 @@ function CountryCard({
   name,
   population,
   region,
-}: CountryDetail) {
+}: CountryList) {
   const details = [
     {
       label: "Population",

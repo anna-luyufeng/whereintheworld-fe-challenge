@@ -26,20 +26,18 @@ function BaseBackToTop() {
     });
   };
 
-  return (
-    isVisible && (
-      <div className={styles.root}>
-        <Fab
-          color="primary"
-          size="medium"
-          aria-label="Back to top"
-          onClick={scrollToTop}
-        >
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </div>
-    )
-  );
+  return isVisible ? (
+    <div className={styles.root}>
+      <Fab
+        color="primary"
+        size="medium"
+        aria-label="Back to top"
+        onClick={scrollToTop}
+      >
+        <KeyboardArrowUpIcon />
+      </Fab>
+    </div>
+  ) : null;
 }
 
 export default BaseBackToTop;

@@ -6,7 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import Select from "@mui/material/Select";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import ClearIcon from "@mui/icons-material/Clear";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -24,7 +24,7 @@ import styles from "./Home.module.scss";
 function Home() {
   const { data = [], isLoading } = useGetAllCountriesQuery({});
 
-  const [listData, setListData] = useState([]);
+  const [listData, setListData] = useState<CountryList[]>([]);
   const [filter, setFilter] = useState({
     name: "",
     region: "",
@@ -49,15 +49,21 @@ function Home() {
     setListData(filteredListData);
   }, [data, filter.region, filter.name]);
 
-  const onChangeFilter =
-    (key: "name" | "region") =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value;
-      setFilter((state) => ({
-        ...state,
-        [key]: value,
-      }));
-    };
+  const onChangeNameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setFilter((state) => ({
+      ...state,
+      name: value,
+    }));
+  };
+
+  const onChangeRegionFilter = (event: SelectChangeEvent) => {
+    const value = event.target.value;
+    setFilter((state) => ({
+      ...state,
+      region: value,
+    }));
+  };
 
   const clearSearch = () =>
     setFilter((state) => ({
@@ -111,7 +117,7 @@ function Home() {
               </InputAdornment>
             }
             placeholder="Search for a country..."
-            onChange={onChangeFilter("name")}
+            onChange={onChangeNameFilter}
           />
         </FormControl>
         <FormControl fullWidth className={styles.filter}>
@@ -120,7 +126,7 @@ function Home() {
             labelId="filter-region-label"
             label="Filter by region"
             value={filter.region}
-            onChange={onChangeFilter("region")}
+            onChange={onChangeRegionFilter}
           >
             <MenuItem value="">All</MenuItem>
             {REGION_LIST.map((region) => (
