@@ -32,7 +32,7 @@ export const countryApi = createApi({
         if (countryResult.error)
           return { error: countryResult.error as FetchBaseQueryError };
 
-        const countryBorders = countryResult.data.borders;
+        const countryBorders = (countryResult.data as Country).borders;
 
         const countryBordersResults = await Promise.all(
           countryBorders.map(
@@ -49,7 +49,7 @@ export const countryApi = createApi({
         return countryBordersResults
           ? {
               data: transformCountry({
-                ...countryResult.data,
+                ...(countryResult.data as Country),
                 borders: countryBordersResults,
               }),
             }
