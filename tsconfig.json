@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "module": "esnext",
     "noImplicitAny": true,
+    "strict": true
   },
   "include": ["src", "typings"]
 }
