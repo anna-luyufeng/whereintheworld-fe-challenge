@@ -7,7 +7,8 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2015",
     "moduleResolution": "node",
-    "module": "esnext"
+    "module": "esnext",
+    "noImplicitAny": true,
   },
   "include": ["src", "typings"]
 }
