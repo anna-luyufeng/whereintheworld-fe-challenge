@@ -1,4 +1,3 @@
-import { string } from "prop-types";
 import { Link } from "react-router-dom";
 
 import styles from "./CountryCard.module.scss";
@@ -45,14 +44,5 @@ function CountryCard({
     </Link>
   );
 }
-
-CountryCard.propTypes = {
-  alpha3Code: string.isRequired,
-  capital: string.isRequired,
-  flag: string.isRequired,
-  name: string.isRequired,
-  population: string.isRequired,
-  region: string.isRequired,
-};
 
 export default CountryCard;
