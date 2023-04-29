@@ -13,7 +13,7 @@ function CountryDetail() {
   const params = useParams();
 
   const { data, isLoading, isFetching } = useGetCountryByAlpha3CodeQuery(
-    params.code
+    params.code ?? ""
   );
 
   const renderDetail = () => {

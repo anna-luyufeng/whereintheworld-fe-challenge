@@ -1,8 +1,4 @@
-import {
-  FetchBaseQueryError,
-  createApi,
-  fetchBaseQuery,
-} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { transformCountry, transformGetAllCountries } from "./transform";
 
@@ -20,7 +16,7 @@ export const countryApi = createApi({
       transformResponse: transformGetAllCountries,
     }),
     getCountryByAlpha3Code: builder.query({
-      async queryFn(code, _queryApi, _extraOptions, fetchWithBQ) {
+      async queryFn(code: string, _queryApi, _extraOptions, fetchWithBQ) {
         const countryResult = await fetchWithBQ({
           url: `/alpha/${code}`,
           params: {
@@ -29,8 +25,7 @@ export const countryApi = createApi({
           },
         });
 
-        if (countryResult.error)
-          return { error: countryResult.error as FetchBaseQueryError };
+        if (countryResult.error) return { error: countryResult.error };
 
         const countryBorders = (countryResult.data as CountryDetail).borders;
 
