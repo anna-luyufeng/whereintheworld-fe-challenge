@@ -11,8 +11,5 @@
     "noImplicitAny": true,
     "strict": true
   },
-  "include": [
-    "src",
-    "typings"
-  ]
+  "include": ["src", "typings"]
 }

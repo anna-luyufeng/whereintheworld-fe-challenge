@@ -60,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
     "husky": "^7.0.0",
     "lint-staged": "^12.3.4",
     "prettier": "^2.5.1"
